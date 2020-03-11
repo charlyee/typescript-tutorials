@@ -77,4 +77,13 @@ This will create a new JavaScript file of the same name, eg: main.js.
 
 4: Now this JavaScript file produced is the same one that you added to your html file directly before in the script tags.
 
-With live reload enabled as soon as this JavaScript file is compiled from the TypeScript file your webpage should reload.
+With live reload enabled as soon as this JavaScript file is compiled from the TypeScript file your webpage should reload with the changes :)!
+
+#### PART 3: Running This TypeScript Code IN THE TERMINAL. NO HTML! 
+
+For the majority of these TypeScript tutorials it is assumed that we will not actually have any HTML integration and that this will all be done in the terminal directly. HTML is nice, but for our purposes it clutters/clouds our actual concern: TYPESCRIPT.
+
+1: Install ts-node using the command `npm install typescript ts-node -g`
+
+2: Now you can run TypeScript files directly using `ts-node main.ts` where you could replace main.ts with whatever name you gave the TypeScript file.
+
