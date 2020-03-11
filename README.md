@@ -1,9 +1,9 @@
 # TypeScript Tutorials
 
-##Suggested IDE:
+## Suggested IDE:
 Visual Studio Code
 
-##Suggested Extensions (for Visual Studio Code):
+## Suggested Extensions (for Visual Studio Code):
 1: ESLint
 2: Material Icon Theme
 3: Path Intellisense
