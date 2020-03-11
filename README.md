@@ -43,11 +43,13 @@ By default they should be: alt, shift, f.
 
 By default they should be: alt, shift, f.
 
-## 2: How To Run WITH HTML INTEGRATION
+## 2: How To Run WITH HTML INTEGRATION (Hello Project Work!!!! :) )
 
-1: Create an index.html file (as you are used to).
+####PART 1: 
 
-2: File structure (as you are used to). How have you set up your folders and files in the past for projects? It does not change much here.
+1: Create an `index.html` file (as you are used to).
+
+2: File structure (as you are used to). How have you set up your folders and files in the past for projects? It does not change much here. `styles`, `html` etc.
 
 3: Typescript files have the .ts file extension at the end. Similar to how javascript had .js and html files have .html file extensions.
 
