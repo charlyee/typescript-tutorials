@@ -1,6 +1,6 @@
 # TypeScript Tutorials
 
-## First Steps: Developer Environment and How To Run
+## 1: First Steps: Developer Environment and How To Run
 
 ### Suggested IDE:
 Visual Studio Code
