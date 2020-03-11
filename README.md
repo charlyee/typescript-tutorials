@@ -1,6 +1,6 @@
 # TypeScript Tutorials
 
-## 1: First Steps - Developer Environment and How To Run
+## 1: First Steps - Developer Environment
 
 ### Suggested IDE:
 Visual Studio Code
@@ -43,3 +43,12 @@ By default they should be: alt, shift, f.
 
 By default they should be: alt, shift, f.
 
+## 2: How To Run WITH HTML INTEGRATION
+
+1: Create an index.html file (as you are used to).
+
+2: File structure (as you are used to). How have you set up your folders and files in the past for projects? It does not change much here.
+
+3: Typescript files have the .ts file extension at the end. Similar to how javascript had .js and html files have .html file extensions.
+
+Create a TypeScript file with the name like `main.ts`
