@@ -45,7 +45,7 @@ By default they should be: alt, shift, f.
 
 ## 2: How To Run WITH HTML INTEGRATION (Hello Project Work!!!! :) )
 
-####PART 1: 
+#### PART 1: 
 
 1: Create an `index.html` file (as you are used to).
 
