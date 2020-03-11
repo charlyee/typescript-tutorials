@@ -33,11 +33,13 @@ I STRONGLY advise students to use this and to use this very frequently. Autoform
 
 Where is it Located?
 
+By default they should be: alt, shift, f.
+
 - Preferences -> Keyboard Shortcuts 
 
 - Then search for ‘format document’
 
-This will bring up your particular keybinds for autoformatting. 
+- This will bring up your particular keybinds for autoformatting. 
 
 By default they should be: alt, shift, f.
 
