@@ -183,19 +183,79 @@ functionAcceptingAnotherFunctionInArguments(basicConsoleDotLogFunction); //Passi
  * Look VERY CAREFULLY at the return type from this function!!!!
  * This is a function definition being defined as what we will return.
  *
+ * Remember anonymous functions from regular JavaScript? That's what we are returning here.
+ * An anonymous function. Where the anonymous function will accept a string as it's one argument
+ * parameter. And where it will return a number.
+ *
+ * ... Does it look overwhelming? Take a step back. Pick at this code.
+ * This is all syntax that you've already seen before. Break it down piece by piece.
+ *
  * We state here: something like "WE EXPECT THIS FUNCTION TO RETURN
  * ANOTHER FUNCTION. THIS OTHER FUNCTION THAT WE ARE RETURNING SHOULD
  * ACCEPT A STRING AND RETURN A NUMBER."
  */
 
 const functionReturningBasicFunction = (): ((a: string) => number) => {
-  return (a: string) => {
+  return (a: string): number => {
     console.log("This function was printed!");
     console.log(a);
     return 5;
   };
 };
 
+// Likewise this is how you'd invoke it like a closure.
+// TypeScript and JavaScript are very very similar in these mechanics.
+
 console.log(functionReturningBasicFunction()("hello world again!"));
 
+// Final Example for Functions and TypeScript: Closure with functions.
+// Likewise this is how you'd invoke it like a closure.
+// TypeScript and JavaScript are very very similar in these mechanics.
+// This example involves types with a closure.
+// We have THREE methods declared here.
+// 1: A method declared
+const functionTakingOneFunctionAsAnArgumentAndReturningAnotherFunction = (
+  aString: string,
+  callback: (callBackParam: string) => string
+): ((a: string) => string) => {
+  const closureConst = callback(aString);
+
+  return (callbackString: string) => {
+    return closureConst + callbackString;
+  };
+};
+
+console.log(
+  functionTakingOneFunctionAsAnArgumentAndReturningAnotherFunction(
+    "Hello ",
+    (a: string): string => {
+      return a;
+    }
+  )("world! :D")
+);
+
 // 6: ANY TYPE ---------------------------------------------------------------------------------------------
+//      We talked about the any type earlier, but let's make it more concrete here.
+//      The ANY type means that we basically remove types from typescript where any is used.
+//      ANY means that ANY data type can be used.
+//      ANY, thankfully, is quite true to it's name... literally any data type...
+//
+//      Generally speaking, unless you REALLY know what you're doing, this type should be avoided.
+//      If you are "using typescript" and use any everywhere you completely overturned the entire point
+//      of using TypeScript in the first place...
+//
+//      Sometimes useful? Yeah! Absolutely!
+//      But this is one of those "developer beware" key words. Useful sometimes, but used too often it's dangerous!
+
+function anyFunction(a: any, b: any): any {
+  a = 2;
+  a = {};
+  a = "42";
+  a = +a;
+  b = 8;
+  b = { objectProperty: "okThen" };
+  let c = +a + " " + b.objectProperty;
+  return c;
+}
+
+console.log(anyFunction("lol", "anything!!!!!"));
