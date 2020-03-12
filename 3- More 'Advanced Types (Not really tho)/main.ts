@@ -6,8 +6,7 @@
  *    2: Literal Types
  *    3: Type Alias
  *    4: Function Types
- *    5: Unknown Type
- *    6: any
+ *    5: any
  *
  * PURPOSE:
  *        To introduce you to these more "advanced" types, but the reality is that these are very commonly used
@@ -199,5 +198,4 @@ const functionReturningBasicFunction = (): ((a: string) => number) => {
 
 console.log(functionReturningBasicFunction()("hello world again!"));
 
-// 5: UNKNOWN TYPES ----------------------------------------------------------------------------------------
 // 6: ANY TYPE ---------------------------------------------------------------------------------------------

@@ -140,15 +140,15 @@ let boolExampleTwo: boolean = true;
 
 let numberExampleThree: number = 2;
 let booleanExampleThree: boolean = false;
-// Again this works for types. Hover over them, it still works! 
+// Again this works for types. Hover over them, it still works!
 
 booleanExampleThree = true; //still works
 numberExampleThree = 9 * 7 + 1; //still works too!
 
 // Okay so what is the point of this? That we've now guaranteed that we will have a variable stay a particular
 // type, and this yields many benefits such as better code completion, preventing unexpected type changes and
-// unexpected assignments. TypeScript will send a ton of error messages at you and the IDE will "red squiggly line" 
-// the errors before you even run the code. 
+// unexpected assignments. TypeScript will send a ton of error messages at you and the IDE will "red squiggly line"
+// the errors before you even run the code.
 
 // Let's take this number, and I will COMMENT OUT the code I REMOVED because it causes errors.
 let numberExampleFour = 4;
@@ -158,21 +158,43 @@ let numberExampleFour = 4;
 
 // But before this section is over I want to introduce one area where you WANT to specify a type.
 // Mostly because you cannot infer a type from this initially...
+let anotherExample;
 
-//Uncomment this it gives a red squiggly for error right?:
-// let a; 
-
-//What is the type of a here? 
-//Hover over a... what do you see there? 
+// What is the type of anotherExample here?
+// Hover over anotherExample... what do you see there?
+//      let anotherExample: any
 //
-//    "let a: any
-//     Variable 'a' implicitly has an 'any' type, but a better type may be inferred from usage.ts(7043)
-//    Cannot redeclare block-scoped variable 'a'.ts(2451)"
+// I will discuss any in more detail later on, but for now you can think of it as being ANY type.
+// Or behaving as "normal javascript" where you're giving up literally every single advantage of
+// using typescript. It's fine in JavaScript but in TypeScript this is something that would
+// be caught as a potential issue during code review for sure.
+
+// So when we want a variable declared BEFORE we use it, then we can instantiate it like this.
+
+let numberExampleFive: number; // Notice how there is no variable here to get the type implicitly from?
+// This means that TypeScript CANNOT infer the type from it.
+// (How could it?).
+// So in THIS instance it is more secure to declare it beforehand.
+
+//Now let's just do some examples...
+
+/**
+ * IMPLICITLY DETERMINES THAT i IS A NUMBER TYPE FROM 0 ASSIGNMENT.
+ */
+for (let i = 0; i < 10; i++) {
+  console.log(i);
+}
+
+let booleanExampleFour: boolean;
+booleanExampleFour = true || (true && true); //This will evaluate to true.
+console.log(booleanExampleFour);
+
+// 3: Number ------------------------------------------------------------------------------------------
+//    Now from this point forward we're going to try and use these data types using FUNCTIONS.
+//    Functions can be defined using function keyword or "fat arrow" syntax. This is a TypeScript lessons
+//    though and NOT a lesson in JavaScript. Refer to JavaScript if you are confused on what a function is, etc.
 //
-// But also this gives a red squiggly. It's hideous.
-
-
-
+// Look at the comment block ABOVE THE METHOD for method details.
 
 /**
  * Note that we now have types defined in the PARAMETERS.
@@ -181,6 +203,12 @@ let numberExampleFour = 4;
  * But interestingly enough note that we also specify the return type at the end of the
  * method signature. In this particular instance we indicate that it is a "number".
  *
+ * Remember implicit type assignment from the earlier section? Return types can be done
+ * implicitly and usually that is good enough. But with TypeScript it is often QUITE safer
+ * for your code to explicitly say "I expect a number to be returned from this function."
+ * This allows the developer to know exactly what they are going to return from the function
+ * and the person calling the function to know what that function will return to them.
+ *
  * @param a Specifies that a number is expected as input
  * @param b Specifies that a number is expected as input yet again
  * @returns Returns a number.
@@ -188,6 +216,13 @@ let numberExampleFour = 4;
 function addNumbers(a: number, b: number): number {
   return a + b;
 }
+
+// This function might look like this in JavaScript with the Types Removed.
+// Compare and contrast these. These differences are the only major differences in functions.
+//
+// function addNumbers(a, b) {
+//   return a + b;
+// }
 
 console.log(addNumbers(1, 2)); //Expected result is the NUMBER 3.
 
@@ -199,9 +234,14 @@ console.log(addNumbers(1, 2)); //Expected result is the NUMBER 3.
  * @param stringB accepts a string as the second argument.
  * @returns Returns a string.
  */
-var concatenateStrings = (stringA: string, stringB: string) => {
+var concatenateStrings = (stringA: string, stringB: string): string => {
   return stringA + stringB;
 };
+
+//JavaScript "Equivalent"
+// var concatenateStrings = (stringA, stringB) => {
+//   return stringA + stringB;
+// };
 
 console.log(concatenateStrings("hello ", "world")); //Expected result is the STRING "hello world".
 
@@ -212,6 +252,9 @@ console.log(concatenateStrings("hello ", "world")); //Expected result is the STR
  * So to indicate that we are returning nothing you can use the void keyword here.
  * And this indicates that we return NOTHING. And this function only will console.log.
  * Returning nothing.
+ *
+ * @param a This method accepts a string as it's one parameter argument.
+ * @returns This method returns void to the caller.
  */
 var returnNothingFunction = (a: string): void => {
   console.log(a);
@@ -224,7 +267,15 @@ console.log(returnNothingFunction("hello world 2")); //Prints "hello world 2" to
  * has a while loop that will never be returned out from. This
  * method will, by definition, NEVER return.
  *
+ * "But when will that happen?"
+ * Think of things like infinite while loops that never exit.
+ * Think of things like functions that occur when the program crashes or hits an error...
+ * (Which would immediately halt program execution. Because of the error. And thus NEVER return. )
+ *
+ * Is this always used? NO. But is it used sometimes? YES, frequently enough I felt the need to specify it here!
+ *
  * So we put the return type of never.
+ * @returns This method is expected to NEVER return.
  */
 var neverReturnFunction = (): never => {
   while (true) {
@@ -243,6 +294,7 @@ var neverReturnFunction = (): never => {
  *
  * @param a This method accepts a boolean parameter as it's first parameter.
  * @param b This method accepts a boolean parameter as it's second parameter.
+ * @returns This method returns a boolean to the caller.
  */
 var booleanAndOperatorFunction = (a: boolean, b: boolean): boolean => {
   return a && b;
@@ -258,6 +310,15 @@ console.log(booleanAndOperatorFunction(true, true)); //Expect this to print TRUE
  *
  * Basically, this word being used in a type makes it act like javascript and you
  * lose all typescript perks. Unless you have a good reason, I STRONGLY recommend you AVOID using any.
+ *
+ * Because think about it, with TypeScript we know if we are getting numbers, strings or bools (etc) right?
+ * Now when we do this we have NO IDEA from the method signature alone what this method actually expects
+ * to take in or what it expects to put out... this is literally removing any point to having
+ * used TypeScript.
+ *
+ * Sometimes is using any useful? YES. But not always. And in many cases you would want to
+ * instead use "Unknown" type... google-fu that term if you are curious about it. We don't have the
+ * time to cover it here and it's very-much a specific case.
  *
  * @param a Passing in literally any data type as the first parameter.
  * @param b Passing in literally any data type as the second parameter.
