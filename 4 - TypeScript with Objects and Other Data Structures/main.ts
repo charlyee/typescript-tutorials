@@ -265,5 +265,14 @@ console.log(PizzaToppings.CHEESE);
 console.log(PizzaToppings.PINEAPPLE);
 
 // 4: MAPS TYPES ----------------------------------------------------------------------------------------
+// Remember Maps from ES6 Syntax?
+// The core thing to remember is that maps have NO ORDER. They are key-value pairs.
+// They lack order and probably shouldn't be your first pick for iterables (unless you decide that's what you really want...)
+//
+// You access values by specifying SPECIFIC keys.
+// Otherwise these values are hidden/stuck in limbo of the map.
+
+let mapTypeExample: Map<number, string>; //Explicit declaration of the map type.
+
 
 // 5: SETS TYPES ----------------------------------------------------------------------------------------
