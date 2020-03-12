@@ -43,7 +43,7 @@ By default they should be: alt, shift, f.
 
 By default they should be: alt, shift, f.
 
-## 2: How To Run WITH HTML INTEGRATION (Hello Project Work!!!! :) )
+## How To Run WITH HTML INTEGRATION (Hello Project Work!!!! :) )
 
 #### PART 1: Creating Files
 
@@ -79,7 +79,7 @@ This will create a new JavaScript file of the same name, eg: main.js.
 
 With live reload enabled as soon as this JavaScript file is compiled from the TypeScript file your webpage should reload with the changes :)!
 
-#### PART 3: Running This TypeScript Code IN THE TERMINAL. NO HTML! 
+## Running TypeScript Code IN THE TERMINAL. NO HTML! 
 
 For the majority of these TypeScript tutorials it is assumed that we will not actually have any HTML integration and that this will all be done in the terminal directly. HTML is nice, but for our purposes it clutters/clouds our actual concern: TYPESCRIPT.
 
