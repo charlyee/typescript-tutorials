@@ -65,7 +65,7 @@ Example:
 `<script src="main.js"></script>`
 
 
-#### PART 2: Running This TypeScript Code With HTML.
+## PART 2: Running This TypeScript Code With HTML.
 
 1: Start the HTML file using the 'Live Reload' option. This should bring up a browser window.
  
