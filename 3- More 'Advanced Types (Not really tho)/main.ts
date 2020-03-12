@@ -1,24 +1,36 @@
 /**
- * TypeScript Section 3: "Basic Types and Functions"
+ * TypeScript Section 3: "More 'Advanced Types (Not really tho)"
  *
  * TOPICS:
- *    -Union Types
- *    -Literal Types
- *    -Type Alias
- *    -Function Types
- *    -Unknown Type
- *    -any
+ *    1: Union Types
+ *    2: Literal Types
+ *    3: Type Alias
+ *    4: Function Types
+ *    5: Unknown Type
+ *    6: any
  *
- * PURPOSE/FOCUS:
- *  The exact same as the first file. Look at comments, look at the code samples.
- *  Ideally tinker and try and "break" them. A lot of learning comes from breaking/modifying working code
- *  piece by piece and seeing what happens!
+ * PURPOSE:
+ *        To introduce you to these more "advanced" types, but the reality is that these are very commonly used
+ *        with TypeScript and you should absolutely try and familiarize yourself with them.
+ *
+ *        eg: You want to create an array that can contain both strings and numbers, how do you do that?
+ *        eg: You want to be able to have a function accept a function as an argument or return one...
+ *              well... how do you do that? (Remember: JavaScript functions are FIRST CLASS.)
+ *        eg: You want to be able to specify you only want the user to put in one of a few options
+ *              such as 5,6,7 or "hello" into a method (and yes this happens!!!). How do you do that?
+ *
+ * FOCUS ON:
+ *      Each function has comments around it including the returns statement...
+ *      these comments will really help guide you to understanding them. Or should. I hope.
+ *
+ *      Ideally tinker and try and "break" them. A lot of learning comes from breaking/modifying working code
+ *      piece by piece and seeing what happens!
  */
 
-// UNION TYPES ------------------------------------------------------------------------------------------
-// Union types are used where you have something that you want to be able to be or accept (or whatever else)
-// two or more types. Where just specifying a string is not desired. Where you might want something like
-// "hey, I want a STRING and a NUMBER to be able to be passed into this function."
+// 1: UNION TYPES ------------------------------------------------------------------------------------------
+//      Union types are used where you have something that you want to be able to be or accept (or whatever else)
+//      two or more types. Where just specifying a string is not desired. Where you might want something like
+//      "hey, I want a STRING and a NUMBER to be able to be passed into this function."
 
 /**
  * Union types function example.
@@ -38,10 +50,10 @@ const unionTypesFunction = (a: string | number) => {
   //that isn't either a number or a string to be passed into this method!
 };
 
-// LITERAL TYPES ----------------------------------------------------------------------------------------
-// Literal types are where you... literally... say that you want to have passed
-// into the method (or used etc etc). This allows you to really refine what you
-// expect users to use the method for.
+// 2: LITERAL TYPES ----------------------------------------------------------------------------------------
+//       Literal types are where you... literally... say that you want to have passed
+//       into the method (or used etc etc). This allows you to really refine what you
+//       expect users to use the method for.
 
 /**
  * Example of a literal type being used in the parameters.
@@ -76,14 +88,13 @@ const unionTypeLiterals = (
   return 5;
 };
 
-// TYPE ALIAS -------------------------------------------------------------------------------------------
-// So in that last function we defined... that was quite a mouthful for types right?
-// What if we could define a 'variable' to store these types in?
-// That's where the "type alias" feature comes in handy!
+// 3: TYPE ALIAS -------------------------------------------------------------------------------------------
+//       So in that last function we defined... that was quite a mouthful for types right?
+//       What if we could define a 'variable' to store these types in?
+//       That's where the "type alias" feature comes in handy!
 
 //Let's say that we wanted to do a single 'type' that indicated we would
 //accept both a number and a string type into the parameters.
-
 type StringsAndNumbers = number | string;
 
 //That is all that this does here. It specifies that we have made a "custom type" or better
@@ -128,15 +139,15 @@ function moreTypeAliasingExamples(
   return false;
 }
 
-// FUNCTION TYPES ---------------------------------------------------------------------------------------
-// Recall that functions are FIRST CLASS, you learned this in JavaScript.
-// Recap:
-//    Functions can be passed into other functions as arguments.
-//    Functions can be returned to other functions.
+// 4: FUNCTION TYPES ---------------------------------------------------------------------------------------
+//       Recall that functions are FIRST CLASS, you learned this in JavaScript.
+//       Recap:
+//          Functions can be passed into other functions as arguments.
+//          Functions can be returned to other functions.
 //
-// So what does this mean given everything you've now seen with TypeScript...?
-// "That TypeScript will be super picky... again... :("
-// Yes! Exactly!!!!! :D
+//       So what does this mean given everything you've now seen with TypeScript...?
+//       "That TypeScript will be super picky... again... :("
+//       Yes! Exactly!!!!! :D
 
 /**
  * Basic function that just console.log's a basic string.
@@ -188,5 +199,5 @@ const functionReturningBasicFunction = (): ((a: string) => number) => {
 
 console.log(functionReturningBasicFunction()("hello world again!"));
 
-// UNKNOWN TYPES ----------------------------------------------------------------------------------------
-// ANY TYPE ---------------------------------------------------------------------------------------------
+// 5: UNKNOWN TYPES ----------------------------------------------------------------------------------------
+// 6: ANY TYPE ---------------------------------------------------------------------------------------------
