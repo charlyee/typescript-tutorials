@@ -69,7 +69,7 @@ Example:
 
 This section assumes you have already installed Node.js on your machine.
 
-1: Ensure that you run the command npm install npm install -g typescript.
+1: Ensure that you run the command `npm install npm install -g typescript.`
 
 2: Start the HTML file using the 'Live Reload' option. This should bring up a browser window.
  
