@@ -67,15 +67,19 @@ Example:
 
 #### PART 2: Running This TypeScript Code With HTML.
 
-1: Start the HTML file using the 'Live Reload' option. This should bring up a browser window.
- 
-2: Make modifications / code changes to the TypeScript file. For example add `console.log("Hello :)!"  )` line to your TypeScript file `main.ts`.
+This section assumes you have already installed Node.js on your machine.
 
-3: Use the command `tsc main.ts`, assuming still that you're using main.ts as your TypeScript file name.
+1: Ensure that you run the command npm install npm install -g typescript.
+
+2: Start the HTML file using the 'Live Reload' option. This should bring up a browser window.
+ 
+3: Make modifications / code changes to the TypeScript file. For example add `console.log("Hello :)!"  )` line to your TypeScript file `main.ts`.
+
+4: Use the command `tsc main.ts`, assuming still that you're using main.ts as your TypeScript file name.
 
 This will create a new JavaScript file of the same name, eg: main.js.
 
-4: Now this JavaScript file produced is the same one that you added to your html file directly before in the script tags.
+5: Now this JavaScript file produced is the same one that you added to your html file directly before in the script tags.
 
 With live reload enabled as soon as this JavaScript file is compiled from the TypeScript file your webpage should reload with the changes :)!
 
