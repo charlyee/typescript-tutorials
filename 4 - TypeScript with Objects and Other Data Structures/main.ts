@@ -1,5 +1,3 @@
-import { number } from "prop-types";
-
 /**
  * TypeScript Section 4: "TypeScript with Objects and Other Data Structures"
  *
@@ -271,8 +269,52 @@ console.log(PizzaToppings.PINEAPPLE);
 //
 // You access values by specifying SPECIFIC keys.
 // Otherwise these values are hidden/stuck in limbo of the map.
+//
+// Maps in TypeScript actually follow a different sort of structure, something called a "Record".
+// For all intents and purposes it can be used essentially the same as a map type and follows similar rules.
 
-let mapTypeExample: Map<number, string>; //Explicit declaration of the map type.
+type MapType = Record<number, string>; //It might be easier for some to assign this a type alias.
+//What a map will do is that you will pair a key and a value in a pairing, where you can access the value
+//by specifying that specific key type.
+
+const myMap: Record<number, string> = { //You can just assign a variable to be this new data type.
+  1: "hello!",
+  2: "world!",
+  3: "third value",
+  4: "fourth value",
+  4384834: "some other value"
+}
+
+console.log(myMap[4384834]); //And you can access it like so, "indexing" in by using the specific key.
+//But be careful! This is NOT actually an index. This is NOT a list. You assigned a specific key value pair above.
+//Accessing the specific value can be done by specifying that specific value's key!
+
+myMap[9001] = "this value is over nine thousand"; //This is how to insert a new key-pair value into the "map".
+
+console.log(myMap[9001]); //And likewise you can access it pretty easily...
+
+//Of course though you can always use a "map" using ES6 syntax and that has a lot of benefits, but this record allows 
+//more strict type checking!
+
+const mapMap = new Map(); //Create a new map exactly as you would before.
+mapMap.set("one", "value of one"); //Add values to the map.
+mapMap.set("two", "value of two");
+mapMap.set("three", "value of three");
+
+console.log(mapMap); //Can print the entire map.
+
+console.log(mapMap.get("three")); //And retrieve specific values on key-value pairs...
 
 
 // 5: SETS TYPES ----------------------------------------------------------------------------------------
+// Sets are an object that allows you to store unique values of any time.
+// It only holds UNIQUE values, adding duplicate values does nothing. Only one of each value can be stored.
+// This should mostly be review from ES6 syntax lectures.
+
+const mySet = new Set();
+mySet.add(1);
+mySet.add(2);
+mySet.add(3);
+console.log(mySet);
+
+mySet.add(2);

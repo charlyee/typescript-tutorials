@@ -196,7 +196,7 @@ functionAcceptingAnotherFunctionInArguments(basicConsoleDotLogFunction); //Passi
  */
 
 const functionReturningBasicFunction = (): ((a: string) => number) => {
-  return (a: string): number => {
+  return (a: string):  number => {
     console.log("This function was printed!");
     console.log(a);
     return 5;

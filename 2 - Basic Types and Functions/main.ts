@@ -9,6 +9,8 @@
  *    5: boolean
  *    6: never
  *    7: any
+ *    8: Type Guards
+ *    9: Type Casting
  *    !!! ~Functions are used throughout~.
  *
  * PURPOSE:
@@ -226,6 +228,10 @@ function addNumbers(a: number, b: number): number {
 
 console.log(addNumbers(1, 2)); //Expected result is the NUMBER 3.
 
+
+// 4: String ------------------------------------------------------------------------------------------
+//    Now let's do some examples using the String data type.
+
 /**
  * Similar to the method above, we have VERY CLEARLY DEFINED the parameter types
  * and a clear return type.
@@ -262,6 +268,27 @@ var returnNothingFunction = (a: string): void => {
 
 console.log(returnNothingFunction("hello world 2")); //Prints "hello world 2" to the console.
 
+// 5: Boolean  ------------------------------------------------------------------------------------------
+//    Now let's do some examples using the Boolean data type.
+
+/**
+ * This method showcases taking in two boolean parameters into the function
+ * and then we return to the user a boolean that is a result of the two booleans
+ * being compared to one another using the boolean and (&&) operator!
+ *
+ * @param a This method accepts a boolean parameter as it's first parameter.
+ * @param b This method accepts a boolean parameter as it's second parameter.
+ * @returns This method returns a boolean to the caller.
+ */
+var booleanAndOperatorFunction = (a: boolean, b: boolean): boolean => {
+  return a && b;
+};
+
+console.log(booleanAndOperatorFunction(true, true)); //Expect this to print TRUE to the console.
+
+// 6: Never ------------------------------------------------------------------------------------------
+//    Now let's do some examples using the String data type.
+
 /**
  * This method accepts no parameters, but this method also
  * has a while loop that will never be returned out from. This
@@ -287,20 +314,9 @@ var neverReturnFunction = (): never => {
 // Commented out intentionally... uncomment it if you want to run it but you now know it will
 // go infinately and won't continue down the file.
 
-/**
- * This method showcases taking in two boolean parameters into the function
- * and then we return to the user a boolean that is a result of the two booleans
- * being compared to one another using the boolean and (&&) operator!
- *
- * @param a This method accepts a boolean parameter as it's first parameter.
- * @param b This method accepts a boolean parameter as it's second parameter.
- * @returns This method returns a boolean to the caller.
- */
-var booleanAndOperatorFunction = (a: boolean, b: boolean): boolean => {
-  return a && b;
-};
+// 7: Any ------------------------------------------------------------------------------------------
+//    Now let's do some examples using the any data type.
 
-console.log(booleanAndOperatorFunction(true, true)); //Expect this to print TRUE to the console.
 
 /**
  * This function is using a very important keyword to, in MOST cases, avoid.
@@ -326,3 +342,98 @@ console.log(booleanAndOperatorFunction(true, true)); //Expect this to print TRUE
 var functionWithAny = (a: any, b: any): any => {
   return 998989809 + "hello" + 8798574 + "world?";
 };
+
+// 8: Type Guards ------------------------------------------------------------------------------------------
+//    Type Guards are just pieces of code that you can add to do a RUNTIME check of the types of code.
+//    As introduced before, TypeScript only checks the types prior to compilation and will give you a host
+//    of warning and error messages. This allows you to introduce even more checking of types...
+//    
+//    If I am quite honest though? TypeScript has come very far as a language and TypeChecking like this
+//    is not something I do fairly often, because if you define you want a string you will get a string.
+//    TypeScript won't let you pass a number into a method that is defined with a string. It just won't 
+//    allow it and will give you many error messages.
+//
+//    But I digress. TypeGuard example!
+
+/**
+ * This method will take in any data type and then will print to the console if it is
+ * a string or a number.
+ * @param a Takes in a parameter of any type, essentially turning this into "JavaScript" parameter.
+ */
+var functionWithTypeGuards = (a: any): void => {
+  if (typeof a === 'string') { //The typeguard is this typeof a === 'string'
+    console.log("input is a string data type!");
+  } else if (typeof a === 'number') {//The second typeguard is this typeof a === 'number'
+    console.log("input is a number data type!")
+  }
+};
+
+
+
+// 9: Type Casting ------------------------------------------------------------------------------------------
+//    Type casting is the process of converting a particular data element of one type into a brand new
+//    data element of another type. It is meant to "retain the value equivalent" of the original value
+//    when it is changed to the "value equivalent" of the second value type.
+//
+//    This might not be completely clear at this point, but some examples might help.
+
+
+const numberVariable = "123"; // But this will be a STRING because it is surrounded by quotes.
+// This poises a problem, we want it to be a number. If we tried to pass this into a function
+// such as this function...
+
+const fn2 = (inputNumber: number) => {
+  console.log(inputNumber);
+}
+
+// Then this would fail!
+//
+// So what type casting does is it allows us to transform the value of a variable into
+// a different data type! Awesome, right!?
+//
+// So let's do a few examples of some conversions, of course this is not exhaustive.
+// But if you need to find out a conversion, just google-fu it :)!
+
+fn2(+numberVariable);
+
+//This is a "condensed" syntax, it's very small. But notice the + sign in front of the string variable?
+//This is something that will tell the compiler to please transform the numberVariable into a number!
+//
+// fn2(numberVariable); //If we don't include the + then we try and pass a string into it!
+//And that's just not going to work in TypeScript! Thus this is commented out!
+//
+// And of course this method still works, but you already knew this from earlier JavaScript lectures!
+// I just wanted to add a bit of spice, as this is all mostly review here.
+
+fn2(Number(numberVariable));
+
+// What about casting a NUMBER variable datatype to STRING now?
+
+const stringVariable = 432;
+
+const fn3 = (inputString: string) => {
+  console.log(inputString);
+}
+
+// fn3(stringVariable); //This won't work. Commented out. 
+
+
+//What we can do is invoke this method like this to convert this string to a number...
+
+fn3(String(stringVariable));
+
+// Neat, huh?!
+// TypeScript gives us incredible control over the types, how data is shifting around and makes things
+// FAR more robust and resilient to change than vanilla JS.
+//
+// Fewer bugs, able to code forward with confidence that TS will block painful type errors. Makes code FAR
+// easier to read, especially as the system scales in size and much much more.
+// Thus why I am extremely happy to use it in my personal businesses and advocate strongly for it
+// to anyone I am mentoring! 
+//
+//
+// But this is just the surface, we have a lot more awesome features to go from here! 
+// See you in the third installment!
+
+
+
