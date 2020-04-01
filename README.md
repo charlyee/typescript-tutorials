@@ -20,7 +20,7 @@ This is my personal recommendation for an IDE to use, and that I have used it ex
 
 5: TSLint 
 
-6: Live Reload
+6: Live Server
 
 Extensions can be thought of as adding additional functionalities to the IDE, these can range from highlighting code a certain way, changing the colors that you see on the screen, giving you better more concise error messages, better autocomplete and much much more. 
 
